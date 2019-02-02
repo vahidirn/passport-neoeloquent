@@ -23,7 +23,7 @@ use League\OAuth2\Server\Grant\RefreshTokenGrant;
 use Laravel\Passport\Bridge\RefreshTokenRepository;
 use League\OAuth2\Server\Grant\ClientCredentialsGrant;
 
-class PassportServiceProvider extends ServiceProvider
+class NeoPassportServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

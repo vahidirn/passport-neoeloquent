@@ -2,16 +2,16 @@
 
 namespace Laravel\Passport;
 
-use Illuminate\Database\Eloquent\Model;
+use VahidIrn\NeoEloquent\Eloquent\Model as NeoEloquent;
 
-class PersonalAccessClient extends Model
+class PersonalAccessClient extends NeoEloquent
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'oauth_personal_access_clients';
+    protected $table = 'oauthPersonalAccessClients';
 
     /**
      * The guarded attributes on the model.

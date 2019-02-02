@@ -13,7 +13,7 @@ class CreateOauthAuthCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_auth_codes', function (Blueprint $table) {
+        Schema::create('oauthAuthCodes', function (Blueprint $table) {
             $table->string('id', 100)->primary();
             $table->integer('user_id');
             $table->unsignedInteger('client_id');
@@ -30,6 +30,6 @@ class CreateOauthAuthCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oauth_auth_codes');
+        Schema::dropIfExists('oauthAuthCodes');
     }
 }

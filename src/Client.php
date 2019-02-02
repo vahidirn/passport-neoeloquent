@@ -2,16 +2,16 @@
 
 namespace Laravel\Passport;
 
-use Illuminate\Database\Eloquent\Model;
+use VahidIrn\NeoEloquent\Eloquent\Model as NeoEloquent;
 
-class Client extends Model
+class Client extends NeoEloquent
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'oauth_clients';
+    protected $table = 'oauthClients';
 
     /**
      * The guarded attributes on the model.
@@ -70,7 +70,7 @@ class Client extends Model
      */
     public function tokens()
     {
-        return $this->hasMany(Passport::tokenModel(), 'client_id');
+        return $this->hasMany(Passport::tokenModel(), 'CLIENT_TOKENS');
     }
 
     /**

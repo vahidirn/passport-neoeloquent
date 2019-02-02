@@ -6,10 +6,10 @@ use Mockery as m;
 use Laravel\Passport\Passport;
 use PHPUnit\Framework\TestCase;
 use Illuminate\Config\Repository as Config;
-use Laravel\Passport\PassportServiceProvider;
+use Laravel\Passport\NeoPassportServiceProvider;
 use Illuminate\Contracts\Foundation\Application as App;
 
-class PassportServiceProviderTest extends TestCase
+class NeoPassportServiceProviderTest extends TestCase
 {
     public function test_can_use_crypto_keys_from_config()
     {
@@ -19,7 +19,7 @@ class PassportServiceProviderTest extends TestCase
                 ->andReturn('-----BEGIN RSA PRIVATE KEY-----\nconfig\n-----END RSA PRIVATE KEY-----');
         });
 
-        $provider = new PassportServiceProvider(
+        $provider = new NeoPassportServiceProvider(
             m::mock(App::class, ['make' => $config])
         );
 
@@ -47,7 +47,7 @@ class PassportServiceProviderTest extends TestCase
             $config->shouldReceive('get')->with('passport.private_key')->andReturn(null);
         });
 
-        $provider = new PassportServiceProvider(
+        $provider = new NeoPassportServiceProvider(
             m::mock(App::class, ['make' => $config])
         );
 

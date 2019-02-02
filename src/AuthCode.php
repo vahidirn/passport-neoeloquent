@@ -2,16 +2,16 @@
 
 namespace Laravel\Passport;
 
-use Illuminate\Database\Eloquent\Model;
+use VahidIrn\NeoEloquent\Eloquent\Model as NeoEloquent;
 
-class AuthCode extends Model
+class AuthCode extends NeoEloquent
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'oauth_auth_codes';
+    protected $table = 'oauthAuthCodes';
 
     /**
      * Indicates if the IDs are auto-incrementing.

@@ -1,6 +1,6 @@
 {
-    "name": "laravel/passport",
-    "description": "Laravel Passport provides OAuth2 server support to Laravel.",
+    "name": "vahidirn/passport-neoeloquent",
+    "description": "Laravel NeoEloquent Passport provides OAuth2 server support to Laravel.",
     "keywords": ["laravel", "passport", "oauth"],
     "license": "MIT",
     "support": {
@@ -29,6 +29,7 @@
         "league/oauth2-server": "^7.0",
         "phpseclib/phpseclib": "^2.0",
         "symfony/psr-http-message-bridge": "~1.0",
+        "vahidirn/neoeloquent": "dev-master",
         "zendframework/zend-diactoros": "~1.0"
     },
     "require-dev": {
@@ -51,7 +52,7 @@
         },
         "laravel": {
             "providers": [
-                "Laravel\\Passport\\PassportServiceProvider"
+                "Laravel\\Passport\\NeoPassportServiceProvider"
             ]
         }
     },
