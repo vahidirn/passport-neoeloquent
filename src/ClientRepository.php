@@ -90,11 +90,11 @@ class ClientRepository
 
         $client = Passport::personalAccessClient();
 
-        if (! $client->exists()) {
+        if (! $client->count()) {
             throw new RuntimeException('Personal access client not found. Please create one.');
         }
 
-        return $client->orderBy($client->getKeyName(), 'desc')->first()->client;
+        return $client->orderBy($client->getKeyName(), 'desc')->first()->client()->get()[0];
     }
 
     /**
@@ -136,8 +136,8 @@ class ClientRepository
     {
         return tap($this->create($userId, $name, $redirect, true), function ($client) {
             $accessClient = Passport::personalAccessClient();
-            $accessClient->client_id = $client->id;
             $accessClient->save();
+            $client->personalAccessClients()->save($accessClient);
         });
     }
 

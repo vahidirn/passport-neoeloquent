@@ -14,6 +14,14 @@ class AuthCode extends NeoEloquent
     protected $table = 'oauthAuthCodes';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id',
+    ];
+    /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool

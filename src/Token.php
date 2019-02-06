@@ -14,6 +14,12 @@ class Token extends NeoEloquent
     protected $table = 'oauthAccessTokens';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+   
+    /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool

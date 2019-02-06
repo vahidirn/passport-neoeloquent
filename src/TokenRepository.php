@@ -2,7 +2,9 @@
 
 namespace Laravel\Passport;
 
+use App\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class TokenRepository
 {
@@ -25,7 +27,9 @@ class TokenRepository
      */
     public function find($id)
     {
-        return Passport::token()->where('id', $id)->first();
+//        dd(Passport::token()->where('id', '74f57606db743f478cce2b97d60a18183a0a0f297df4d5df670c8432897b859fc778387ccdcf2160')->first());
+
+        return Passport::token()->where('id_token', $id)->first();
     }
 
     /**
@@ -37,7 +41,7 @@ class TokenRepository
      */
     public function findForUser($id, $userId)
     {
-        return Passport::token()->where('id', $id)->where('user_id', $userId)->first();
+        return Passport::token()->where('id_token', $id)->where('user_id', $userId)->first();
     }
 
     /**
@@ -86,7 +90,7 @@ class TokenRepository
      */
     public function revokeAccessToken($id)
     {
-        return Passport::token()->where('id', $id)->update(['revoked' => true]);
+        return Passport::token()->where('id_token', $id)->update(['revoked' => true]);
     }
 
     /**
@@ -98,7 +102,7 @@ class TokenRepository
      */
     public function isAccessTokenRevoked($id)
     {
-        if ($token = $this->find($id)) {
+        if ($token = Passport::token()->where('id_token', $id)->first()) {
             return $token->revoked;
         }
 

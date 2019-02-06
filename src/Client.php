@@ -14,6 +14,14 @@ class Client extends NeoEloquent
     protected $table = 'oauthClients';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id',
+    ];
+    /**
      * The guarded attributes on the model.
      *
      * @var array
@@ -81,5 +89,9 @@ class Client extends NeoEloquent
     public function firstParty()
     {
         return $this->personal_access_client || $this->password_client;
+    }
+
+    public function personalAccessClients(){
+        return $this->hasMany(Passport::personalAccessClientModel(), 'PERSONAL_ACCESS_CLIENT');
     }
 }
